@@ -4,7 +4,7 @@ import librosa
 import numpy as np
 import noisereduce as nr
 
-folder_path = './test'
+folder_path = './release_in_the_wild'
 
 
 # Function to load audio file and denoise
