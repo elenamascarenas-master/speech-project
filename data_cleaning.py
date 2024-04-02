@@ -3,9 +3,11 @@ import pandas as pd
 import librosa
 import numpy as np
 import noisereduce as nr
+import time
+import soundfile as sf
 
 folder_path = './release_in_the_wild'
-
+#output_folder = './denoised_audio'
 
 # Function to load audio file and denoise
 def load_and_denoise_audio(file_path, target_sr=22050):
@@ -20,6 +22,9 @@ def load_and_denoise_audio(file_path, target_sr=22050):
 
         # Apply noise reduction
         y_denoised = nr.reduce_noise(y=data, sr=rate)
+
+        #output_path = os.path.join(output_folder, f'{file_name[:-4]}_reduced_noise.wav')
+        #sf.write(output_path, y_denoised, rate)
 
         return y_denoised
     except Exception as e:
@@ -41,6 +46,8 @@ def pad_audio(audio, target_length):
 
 
 # Process folder with audio files
+start_time = time.time()
+
 audio_data = []
 
 for file_name in os.listdir(folder_path):
@@ -62,3 +69,7 @@ print(df)
 
 # Optional: Save DataFrame to a CSV file
 # df.to_csv('clean_and_padded_audio.csv', index=False)
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+print(f"Time taken: {elapsed_time} seconds")
