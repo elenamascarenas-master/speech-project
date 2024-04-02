@@ -55,7 +55,9 @@ ipython_config.py
 
 # Visual Studio Code
 .vscode/
-/release_in_the_wild/
-/release_in_the_wild.tar.gz
+
 
 .idea/
+/test/
+/denoised_audio/
+/release_in_the_wild/
