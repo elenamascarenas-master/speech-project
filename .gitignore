@@ -57,3 +57,5 @@ ipython_config.py
 .vscode/
 /release_in_the_wild/
 /release_in_the_wild.tar.gz
+
+/release_in_the_wild_clean/
