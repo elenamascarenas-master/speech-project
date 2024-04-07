@@ -58,6 +58,4 @@ ipython_config.py
 
 
 .idea/
-/test/
-/denoised_audio/
 /release_in_the_wild/
