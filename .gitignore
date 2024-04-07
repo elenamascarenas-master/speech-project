@@ -59,3 +59,4 @@ ipython_config.py
 /release_in_the_wild.tar.gz
 
 .idea/
+/release_in_the_wild_clean/
