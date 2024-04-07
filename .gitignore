@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+_pycache_/
 *.py[cod]
 *$py.class
 
@@ -55,7 +55,8 @@ ipython_config.py
 
 # Visual Studio Code
 .vscode/
-
+/release_in_the_wild/
+/release_in_the_wild.tar.gz
 
 .idea/
-/release_in_the_wild/
+/release_in_the_wild_clean/
