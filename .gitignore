@@ -62,3 +62,4 @@ ipython_config.py
 /numpy_files/
 /numpy_files_clean/
 .idea/
+/numpy_files_durations.npy
