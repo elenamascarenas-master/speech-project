@@ -1,11 +1,13 @@
 import os
 import librosa
 import numpy as np
-
+import matplotlib.pyplot as plt
 # Function to extract Mel spectrogram features
 def extract_features(audio_path):
     waveform, sample_rate = librosa.load(audio_path, sr=None)
     mel_spectrogram = librosa.feature.melspectrogram(y=waveform, sr=sample_rate)
+    mel_spectrogram = librosa.amplitude_to_db(mel_spectrogram, ref=np.min)
+
     return mel_spectrogram
 
 # Path to the folder containing original audio files
