@@ -59,7 +59,8 @@ ipython_config.py
 /release_in_the_wild.tar.gz
 
 /release_in_the_wild_clean/
-/numpy_files/
-/numpy_files_clean/
-
+/mfccs_files/
+/mfccs_files_clean/
 /numpy_files_durations.npy
+/melspec_files_clean/
+/melspec_files/

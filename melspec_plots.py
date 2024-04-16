@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+import librosa
 
 def truncate_mel_spectrogram(mel_spectrogram, num_timeframes):
     truncated_mel_spectrogram = mel_spectrogram[:, :num_timeframes]
@@ -36,17 +37,15 @@ def plot_aggregated_mel_spectrogram(folder_path, filter_string):
             mel_spectrogram_arrays.append(mel_spectrogram)
 
     # Aggregate the Mel spectrogram arrays into a single array
-    norm_aggregation_mean = np.mean(mel_spectrogram_arrays, axis=0).astype(np.float32) / 255.0
+    #norm_aggregation_mean = np.mean(mel_spectrogram_arrays, axis=0).astype(np.float32) / 255.0
+    norm_aggregation_mean = np.mean(mel_spectrogram_arrays, axis=0)
 
     # Return the aggregated Mel spectrogram array and the plot object
     return norm_aggregation_mean
-# Example usage:
-folder_path = './numpy_files_clean'
-bona_fide_agg = plot_aggregated_mel_spectrogram(folder_path, "bona-fide")
-spoof_agg = plot_aggregated_mel_spectrogram(folder_path, "spoof")
 
-plot_melspectrogram(bona_fide_agg, 'Aggregated', bona_fide=True, truncated=True,num_timeframes=300)
-plot_melspectrogram(spoof_agg, 'Aggregated', bona_fide=False, truncated=True,num_timeframes=300)
+
+plot_melspectrogram(bona_fide_agg, 'Aggregated', bona_fide=True, truncated=False,num_timeframes=300)
+plot_melspectrogram(spoof_agg, 'Aggregated', bona_fide=False, truncated=False,num_timeframes=300)
 
 
 #Mel Spectograms specific celebrities
