@@ -2,6 +2,7 @@ import os
 import librosa
 import numpy as np
 import matplotlib.pyplot as plt
+
 # Function to extract Mel spectrogram features
 def extract_features(audio_path):
     waveform, sample_rate = librosa.load(audio_path, sr=None)
