@@ -2,11 +2,12 @@ import os
 import librosa
 import numpy as np
 import matplotlib.pyplot as plt
+import shutil
 
 # Function to extract Mel spectrogram features
 def extract_features(audio_path):
     waveform, sample_rate = librosa.load(audio_path, sr=None)
-    mel_spectrogram = librosa.feature.melspectrogram(y=waveform, sr=sample_rate)
+    mel_spectrogram = librosa.feature.melspectrogram(y=waveform, sr=sample_rate, n_mels=40)
     mel_spectrogram = librosa.amplitude_to_db(mel_spectrogram, ref=np.min)
 
     return mel_spectrogram
@@ -18,6 +19,8 @@ folder_path = './release_in_the_wild'
 nparray_files = './melspec_files'
 if not os.path.exists(nparray_files):
     os.mkdir(nparray_files)
+elif os.path.exists(nparray_files):
+    shutil.rmtree(nparray_files)
 
 # Extract and save Mel spectrogram numpy files for original audio
 for file_name in os.listdir(folder_path):
@@ -35,6 +38,8 @@ folder_path_clean = './release_in_the_wild_clean'
 nparray_files_clean = './melspec_files_clean'
 if not os.path.exists(nparray_files_clean):
     os.mkdir(nparray_files_clean)
+elif os.path.exists(nparray_files_clean):
+    shutil.rmtree(nparray_files_clean)
 
 # Extract and save Mel spectrogram numpy files for cleaned and padded audio
 for file_name in os.listdir(folder_path_clean):
