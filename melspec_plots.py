@@ -17,14 +17,14 @@ def plot_melspectrogram(mel_spectrogram_raw, person, bona_fide=True, truncated=T
     truncated_string = 'Truncated' if truncated else ''
 
     plt.figure(figsize=(10, 4))
-    plt.imshow(mel_spectrogram, aspect='auto', origin='lower')
+    librosa.display.specshow(mel_spectrogram, x_axis='time', y_axis='mel', cmap='magma')
     plt.colorbar(format='%+2.0f dB')
     plt.title(person + ' Mel Spectrogram - ' + audio_type + ' ' + truncated_string)
-    plt.xlabel('Time (frame)')
-    plt.ylabel('Mel Frequency Bin')
+    plt.xlabel('Time (seconds)')
+    plt.ylabel('Frequency (Hz)')
     plt.show()
 
-def plot_aggregated_mel_spectrogram(folder_path, filter_string):
+def melspec_aggregation(folder_path, filter_string):
     # Initialize an empty list to store Mel spectrogram arrays
     mel_spectrogram_arrays = []
 
@@ -43,40 +43,46 @@ def plot_aggregated_mel_spectrogram(folder_path, filter_string):
     # Return the aggregated Mel spectrogram array and the plot object
     return norm_aggregation_mean
 
+#General parameters
+folder_path = './melspec_files_clean'
+seconds = 5
+sr=22050
+hop_length=512
+time_frames = int(seconds * sr / hop_length)
 
-plot_melspectrogram(bona_fide_agg, 'Aggregated', bona_fide=True, truncated=False,num_timeframes=300)
-plot_melspectrogram(spoof_agg, 'Aggregated', bona_fide=False, truncated=False,num_timeframes=300)
+#Aggregated Mel Spec
+bona_fide_agg = melspec_aggregation(folder_path, "bona-fide")
+spoof_agg = melspec_aggregation(folder_path, "spoof")
+    plot_melspectrogram(bona_fide_agg, 'Aggregated', bona_fide=True, truncated=True,num_timeframes=time_frames)
+    plot_melspectrogram(spoof_agg, 'Aggregated', bona_fide=False, truncated=True,num_timeframes=time_frames)
 
 
-#Mel Spectograms specific celebrities
+#Mel Spectrograms specific celebrities
 
 #Person 1: 2pac
 person1 = '2pac'
 filter_bona_fide = person1+ '_bona-fide'
 filter_spoof = person1+ '_spoof'
-bona_fide_person1 = plot_aggregated_mel_spectrogram(folder_path, filter_bona_fide)
-spoof_person1 = plot_aggregated_mel_spectrogram(folder_path, filter_spoof )
-plot_melspectrogram(bona_fide_person1, person1, bona_fide=True, truncated=True,num_timeframes=300)
-plot_melspectrogram(spoof_person1, person1, bona_fide=False, truncated=True,num_timeframes=300)
+bona_fide_person1 = melspec_aggregation(folder_path, filter_bona_fide)
+spoof_person1 = melspec_aggregation(folder_path, filter_spoof )
+plot_melspectrogram(bona_fide_person1, person1, bona_fide=True, truncated=True,num_timeframes=time_frames)
+plot_melspectrogram(spoof_person1, person1, bona_fide=False, truncated=True,num_timeframes=time_frames)
 
-truncate_mel_spectrogram(bona_fide_agg,300)
 #Person 2: Clinton
 person2 = 'bill_clinton'
 filter_bona_fide = person2+ '_bona-fide'
 filter_spoof = person2+ '_spoof'
-bona_fide_person2 = plot_aggregated_mel_spectrogram(folder_path, filter_bona_fide)
-spoof_person2 = plot_aggregated_mel_spectrogram(folder_path, filter_spoof )
-plot_melspectrogram(bona_fide_person2, person2, bona_fide=True, truncated=True,num_timeframes=300)
-plot_melspectrogram(spoof_person2, person2, bona_fide=False, truncated=True,num_timeframes=300)
+bona_fide_person2 = melspec_aggregation(folder_path, filter_bona_fide)
+spoof_person2 = melspec_aggregation(folder_path, filter_spoof )
+plot_melspectrogram(bona_fide_person2, person2, bona_fide=True, truncated=True,num_timeframes=time_frames)
+plot_melspectrogram(spoof_person2, person2, bona_fide=False, truncated=True,num_timeframes=time_frames)
 
 
 #Person 3: Billie Eilish
 person3 = 'billie_eilish'
 filter_bona_fide = person3+'_bona-fide'
 filter_spoof = person3+'_spoof'
-bona_fide_person3 = plot_aggregated_mel_spectrogram(folder_path, filter_bona_fide)
-spoof_person3 = plot_aggregated_mel_spectrogram(folder_path, filter_spoof )
-plot_melspectrogram(bona_fide_person3, person3, bona_fide=True, truncated=True,num_timeframes=300)
-plot_melspectrogram(spoof_person3, person3, bona_fide=False, truncated=True,num_timeframes=300)
-
-
+bona_fide_person3 = melspec_aggregation(folder_path, filter_bona_fide)
+spoof_person3 = melspec_aggregation(folder_path, filter_spoof )
+plot_melspectrogram(bona_fide_person3, person3, bona_fide=True, truncated=True,num_timeframes=time_frames)
+plot_melspectrogram(spoof_person3, person3, bona_fide=False, truncated=True,num_timeframes=time_frames)
