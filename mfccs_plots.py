@@ -2,6 +2,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import librosa
+from matplotlib import cm
 
 def truncate_mel_spectrogram(mfccs, num_timeframes):
     truncated_mfccs = mfccs[:, :num_timeframes]
@@ -82,5 +83,4 @@ bona_fide_person3 = mfccs_aggregation(folder_path, filter_bona_fide)
 spoof_person3 = mfccs_aggregation(folder_path, filter_spoof )
 plot_mfccs(bona_fide_person3, person3, bona_fide=True, truncated=True,num_timeframes=300)
 plot_mfccs(spoof_person3, person3, bona_fide=False, truncated=True,num_timeframes=300)
-
 
