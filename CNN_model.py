@@ -6,8 +6,7 @@ from torch.utils.data import Dataset, DataLoader
 from sklearn.model_selection import train_test_split
 import os
 import numpy as np
-from torchinfo import summary
-from pytorch_lightning.callbacks import TQDMProgressBar
+from pytorch_lightning.callbacks import TQDMProgressBar, ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
 import wandb
 
@@ -31,8 +30,7 @@ for file_name in os.listdir(folder_path):
 mfcc_data = np.array(mfcc_data)
 
 # Reshape MFCC data into 2D array (flatten)
-# X = mfcc_data.reshape(mfcc_data.shape[0], -1)  # Shape: (30914, 13*1077)
-X=mfcc_data
+X = mfcc_data
 
 X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.1, random_state=42)
 X_train, X_val, y_train, y_val = train_test_split(X_train, y_train, test_size=0.23, random_state=32)
@@ -130,10 +128,18 @@ test_loader = DataLoader(test_dataset, batch_size=8)
 # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 wandb.finish()
 wandb.init(project="Fake_Audio_Detection")
-wandb_logger = WandbLogger(project="Fake_Audio_Detection", log_model="all")
+wandb_logger = WandbLogger(project="Fake_Audio_Detection", log_model=True)
 # Initialize model and trainer
 model = CNNModel(learning_rate=1e-3)
-trainer = pl.Trainer(max_epochs=30, callbacks=[TQDMProgressBar()], logger=wandb_logger)
+checkpoint_callback = ModelCheckpoint(
+    monitor='val_loss',
+    dirpath='checkpoints',
+    filename='cnn_model-{epoch:02d}-{val_loss:.2f}',
+    save_top_k=3,  # Save the top 3 models based on validation loss
+    mode='min',  # Save the models with minimum validation loss
+)
+
+trainer = pl.Trainer(max_epochs=20, callbacks=[TQDMProgressBar(), checkpoint_callback], logger=wandb_logger)
 
 # summary(model, (4, 13, 1077))
 
