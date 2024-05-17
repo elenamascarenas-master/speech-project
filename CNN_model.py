@@ -29,7 +29,6 @@ for file_name in os.listdir(folder_path):
 # Convert the list of MFCC arrays to a single 3D numpy array
 mfcc_data = np.array(mfcc_data)
 
-# Reshape MFCC data into 2D array (flatten)
 X = mfcc_data
 
 X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.1, random_state=42)
@@ -45,7 +44,9 @@ class AudioDataset(Dataset):
         return len(self.X)
 
     def __getitem__(self, idx):
-        return self.X[idx], self.y[idx]
+        audio = self.X[idx]
+        label = self.y[idx]
+        return audio, label
 
 
 class CNNModel(pl.LightningModule):
@@ -131,15 +132,16 @@ wandb.init(project="Fake_Audio_Detection")
 wandb_logger = WandbLogger(project="Fake_Audio_Detection", log_model=True)
 # Initialize model and trainer
 model = CNNModel(learning_rate=1e-3)
+experiment_num = 6
 checkpoint_callback = ModelCheckpoint(
     monitor='val_loss',
     dirpath='checkpoints',
-    filename='cnn_model-{epoch:02d}-{val_loss:.2f}',
+    filename=f'cnn_model-{experiment_num}'+'-{epoch:02d}-{val_loss:.2f}',
     save_top_k=3,  # Save the top 3 models based on validation loss
     mode='min',  # Save the models with minimum validation loss
 )
 
-trainer = pl.Trainer(max_epochs=20, callbacks=[TQDMProgressBar(), checkpoint_callback], logger=wandb_logger)
+trainer = pl.Trainer(max_epochs=10, callbacks=[TQDMProgressBar(), checkpoint_callback], logger=wandb_logger)
 
 # summary(model, (4, 13, 1077))
 
