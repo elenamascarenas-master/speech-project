@@ -15,7 +15,7 @@ from sklearn.svm import SVC
 folder_path = './mfccs_files_clean'
 
 # Load gender information
-data = pd.read_csv('./Statistical Learning Project - Data.csv')
+data = pd.read_csv('./celebrity_data.csv.csv')
 
 mfcc_data = []
 labels = []
