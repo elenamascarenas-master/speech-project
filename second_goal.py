@@ -15,12 +15,12 @@ from sklearn.svm import SVC
 folder_path = './mfccs_files_clean'
 
 # Load gender information
-data = pd.read_csv('./celebrity_data.csv.csv')
+data = pd.read_csv('./celebrity_data.csv')
 
 mfcc_data = []
 labels = []
-#genders = []
-races = []
+genders = []
+#races = []
 
 # Load data, labels, and genders
 for file_name in os.listdir(folder_path):
@@ -32,10 +32,10 @@ for file_name in os.listdir(folder_path):
     if "spoof" in file_name:
         labels.append(0)
     # Extract gender from the CSV file based on the file name
-    #gender = data[data['Name Files'] == "_".join(file_name.split('_')[0:-3])]['Gender'].values[0]
-    race = data[data['Name Files'] == "_".join(file_name.split('_')[0:-3])]['Race Simple'].values[0]
-    #genders.append(gender)
-    races.append(race)
+    gender = data[data['Name Files'] == "_".join(file_name.split('_')[0:-3])]['Gender'].values[0]
+    #race = data[data['Name Files'] == "_".join(file_name.split('_')[0:-3])]['Race Simple'].values[0]
+    genders.append(gender)
+    #races.append(race)
     mfcc_array = np.load(file_path)
     mfcc_data.append(mfcc_array)
 
