@@ -10,12 +10,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.svm import SVC
 
+# You can Try This with gender or with race with switching the comments
 
 # Define the path to the directory containing the numpy files
 folder_path = './mfccs_files_clean'
 
 # Load gender information
-data = pd.read_csv('./celebrity_data.csv.csv')
+data = pd.read_csv('./celebrity_data.csv')
 
 mfcc_data = []
 labels = []
