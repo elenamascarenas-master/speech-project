@@ -55,7 +55,7 @@ models = {
     "LogisticRegression": LogisticRegression(penalty='l1', solver='liblinear', C=0.1, max_iter=1000, random_state=42)
 }
 
-# Train and evaluate each model separately
+# Train and evaluate each model separatelygit
 for model_name, model in models.items():
     # Train the model
     model.fit(X_train, y_train)

@@ -133,17 +133,6 @@ for filename in os.listdir(folder_path):
 
 print(counter_spoof)
 
-# Creatin comprehensive celebrity dataset
-celeb_df = pd.read_csv('celebrity_data.csv')
-
-def extract_features(audio_path):
-    waveform, sample_rate = librosa.load(audio_path, sr=None)
-    duration = librosa.get_duration(y= waveform, sr=sample_rate)
-    return duration
-
-file_names = [file_name for file_name in os.listdir(folder_path)]
-durations = [extract_features(os.path.join(folder_path, file_name)) for file_name in os.listdir(folder_path)]
-
 #mel spectrogram example after cleaning
 noised = './release_in_the_wild/billie_eilish_bona-fide_729.wav'
 duration_raw = cf.extract_duration(noised)

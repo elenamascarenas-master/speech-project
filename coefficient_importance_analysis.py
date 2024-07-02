@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import r2_score
 from shap import summary_plot, TreeExplainer
+import shap
 import xgboost as xgb
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
@@ -49,7 +50,7 @@ shap_values_mfcc = np.reshape(shap_values_mfcc, (-1, 13, 1077))
 shap_values_mean = np.mean(shap_values_mfcc, axis=2)
 
 # Visualize
-summary_plot(shap_values_mean, feature_names= feature_names)
+summary_plot(shap_values_mean, feature_names= feature_names, plot_type="bar")
 
 # Generate SHAP values for the test data
 
