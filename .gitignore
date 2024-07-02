@@ -62,7 +62,7 @@ ipython_config.py
 /mfccs_files/
 /mfccs_files_clean/
 /numpy_files_durations.npy
-/melspec_files_clean/
+/melspec_files/melspec_files_clean/
 /melspec_files/
 /mfccs_files_clean.zip
 /mfccs_files_durations.npy
