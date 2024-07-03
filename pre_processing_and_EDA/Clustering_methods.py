@@ -147,7 +147,7 @@ plt.show()
 # plt.xlabel('Sample Index')
 # plt.ylabel('Distance')
 # plt.show()
-=======
+
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 kmeans = KMeans(n_clusters=2, random_state=12)
