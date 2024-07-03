@@ -8,6 +8,7 @@ The dataset used in this project was obtained from [this link](https://deepfake-
 
 1. Visit [source link](https://deepfake-total.com/in_the_wild).
 2. Download the dataset and extract the files to the data/ directory.
+3. change the names of each audio file based on the renaming_file.csv with converting_names.py file.
    
 ### Data Cleaning
 We began with a dataset containing approximately 31,000 audio files. Our first task was to clean the data by removing noise and non-speech elements. This preprocessing step was essential to ensure the quality and relevance of the data for further analysis.
