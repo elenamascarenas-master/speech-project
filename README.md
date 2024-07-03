@@ -39,7 +39,7 @@ Our project successfully demonstrated the potential of machine learning models, 
 ### How to Run
 Clone the repository:
 
-git clone https://github.com/yourusername/detecting-fake-speech.git
+git clone https://github.com/elenamascarenas-master/speech-project.git
 cd detecting-fake-speech
 Install the required dependencies:
 
