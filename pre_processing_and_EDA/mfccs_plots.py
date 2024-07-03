@@ -12,7 +12,7 @@ def plot_mfccs(mfccs_raw, person, bona_fide=True, truncated=True, num_timeframes
     if truncated:
         mfccs = truncate_mel_spectrogram(mfccs_raw,num_timeframes)
     else:
-    mfccs = mfccs_raw
+        mfccs = mfccs_raw
 
     audio_type = 'Real' if bona_fide else 'Fake'
     truncated_string = 'Truncated' if truncated else ''
