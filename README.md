@@ -6,9 +6,10 @@ In this project, we aimed to train a model capable of detecting fake audio, spec
 ### Data Source
 The dataset used in this project was obtained from [this link](https://deepfake-total.com/in_the_wild). Please refer to the original source for any licensing or usage restrictions. To download the dataset, follow these steps:
 
-### Visit [source link](https://deepfake-total.com/in_the_wild).
-Download the dataset and extract the files to the data/ directory.
-Data Cleaning
+1. Visit [source link](https://deepfake-total.com/in_the_wild).
+2. Download the dataset and extract the files to the data/ directory.
+   
+### Data Cleaning
 We began with a dataset containing approximately 31,000 audio files. Our first task was to clean the data by removing noise and non-speech elements. This preprocessing step was essential to ensure the quality and relevance of the data for further analysis.
 
 ### Exploratory Data Analysis (EDA)
