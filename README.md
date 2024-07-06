@@ -1,5 +1,14 @@
 # Detecting Fake Speech Using Machine Learning
+This project
 ## Introduction
+
+This project, created by D. Arbiv and E. Mascareñas García, focuses on training a model capable of detecting fake audio, specifically fake speech, which may not be easily discernible by the human ear.
+
+This endeavor is crucial for preventing misinformation, identity theft, audio-based fraud, and scams. Additionally, it enhances security measures, maintains the integrity of audio content, and protects against the misuse of deepfake technology. 
+
+For any communications, you can reach us on our LinkedIn profiles: [D. Arbiv](https://www.linkedin.com/in/dror-arbiv/) and [E. Mascareñas García](https://www.linkedin.com/in/elena-mascare%C3%B1as-garc%C3%ADa-008615107/).
+
+
 In this project, we aimed to train a model capable of detecting fake audio, specifically fake speech, which may not be easily discernible by the human ear. This endeavor is crucial for preventing misinformation, identity theft, audio-based fraud, and scams. Additionally, it enhances security measures, maintains the integrity of audio content, and protects against the misuse of deepfake technology.
 
 ## Project Overview
@@ -72,7 +81,7 @@ python src/CNN_model.py
 We welcome contributions to this project. Please fork the repository and submit a pull request with your changes.
 
 ### Acknowledgments
-We would like to thank all contributors for this project and espicially for our supervised Dr. Itai Dattner for his support and valuable feedback.
+We would like to thank all contributors for this project and espicially for our supervisor Dr. Itai Dattner for his support and valuable feedback.
 
 
 
