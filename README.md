@@ -8,7 +8,7 @@ The dataset used in this project was obtained from [this link](https://deepfake-
 
 1. Visit [source link](https://deepfake-total.com/in_the_wild).
 2. Download the dataset and extract the files to the data/ directory.
-3. change the names of each audio file based on the renaming_file.csv with converting_names.py file.
+3. Change the names of each audio file based on the renaming_file.csv with converting_names.py file.
    
 ### Data Cleaning
 We began with a dataset containing approximately 31,000 audio files. Our first task was to clean the data by removing noise and non-speech elements. This preprocessing step was essential to ensure the quality and relevance of the data for further analysis.
@@ -19,10 +19,11 @@ In the EDA phase, we utilized 13 Mel-Frequency Cepstral Coefficients (MFCCs) and
 ### Modeling
 We experimented with various machine learning models, including:
 
-XGBoost
-Logistic Regression with L1 regularization
-Random Forest
-K-Nearest Neighbors (KNN)
+- XGBoost
+- Logistic Regression with L1 regularization
+- Random Forest
+- K-Nearest Neighbors (KNN)
+  
 We also explored deep learning approaches, specifically **Convolutional Neural Networks (CNNs)**.
 Among all models tested, XGBoost emerged as the best-performing model, achieving an overall accuracy of 90% and an F1 score of 92.3%.
 
