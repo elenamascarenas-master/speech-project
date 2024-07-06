@@ -25,6 +25,7 @@ We experimented with various machine learning models, including:
 - K-Nearest Neighbors (KNN)
   
 We also explored deep learning approaches, specifically **Convolutional Neural Networks (CNNs)**.
+
 Among all models tested, XGBoost emerged as the best-performing model, achieving an overall accuracy of 90% and an F1 score of 92.3%.
 
 ### Feature Importance
@@ -40,38 +41,39 @@ Our project successfully demonstrated the potential of machine learning models, 
 * README.md: Project overview and documentation.
 
 ### How to Run
-Clone the repository:
-
+1. Clone the repository:
+```
 git clone https://github.com/elenamascarenas-master/speech-project.git
 cd detecting-fake-speech
-Install the required dependencies:
-
+```
+2. Install the required dependencies:
+```
 pip install -r requirements.txt
-Download and extract the dataset to the data/ directory as described in the Data Source section.
+```
+3. Download and extract the dataset to the data/ directory as described in the Data Source section.
 
-Run the data preprocessing script:
+4. Run the data preprocessing script:
+```
+python src/mfccs_files_creation.py
+```
 
-python src/preprocess_data.py
-Perform EDA:
-
-Train the models:
-
+5. Train the models:
+```
 python src/basic_models.py
 python src/CNN_model.py
-
+```
 
 ### Future Work
 * Experiment with other deep learning architectures, such as Recurrent Neural Networks (RNNs) and Transformers.
 * Explore more sophisticated feature extraction techniques.
 * Investigate real-time fake speech detection applications.
-* 
+  
 ### Contributing
 We welcome contributions to this project. Please fork the repository and submit a pull request with your changes.
 
 ### Acknowledgments
 We would like to thank all contributors for this project and espicially for our supervised Dr. Itai Dattner for his support and valuable feedback.
 
-Feel free to adjust and expand on any sections to better fit your needs and highlight specific aspects of your project.
 
 
 
