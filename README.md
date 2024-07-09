@@ -1,5 +1,5 @@
 # Detecting Fake Speech Using Machine Learning
-This project
+
 ## Introduction
 
 This project, created by D. Arbiv and E. Mascareñas García, focuses on training a model capable of detecting fake audio, specifically fake speech, which may not be easily discernible by the human ear.
